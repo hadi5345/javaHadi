@@ -1,0 +1,57 @@
+public interface Player {
+    public void play();
+    public void stop();
+    public void pause();
+    public void reverse();
+}public class DVDPlayer implements Player{
+    public void play(){
+        System.out.println ("Please Play Dvd Player");
+    }
+    public void stop(){
+        System.out.println ("Please stop the Dvd player");
+    }
+    public void pause(){
+        System.out.println (" Please pause Dvd player");
+    }
+    public void reverse(){
+        System.out.println ("Please reverse the Dvd player");
+    }
+    public void video (){
+        System.out.println (" DVD is a  video player");
+    }
+public class CDPlayer implements Player{
+    public void play(){
+        System.out.println (" Plrease play Cd Music");
+    }
+    public void stop(){
+        System.out.println ("Please Stop Cd Player");
+
+    }
+    public void pause(){
+        System.out.println ("Please Pause the Cd player");
+    }
+    public void reverse(){
+        System.out.println ("Please reveres teh Cd Player");
+    }
+    public void audio(){
+        System.out.println ("Plaease Add audio music inn Cd player");
+    }
+
+}}public class Main {
+    public static void main(String[] args) {
+
+
+        CDPlayer c = new CDPlayer ();
+        c.audio ();
+        c.play ();
+        c.stop ();
+        c.pause ();
+        c.reverse ();
+        DVDPlayer d = new DVDPlayer ();
+        d.video ();
+        d.play ();
+        d.stop ();
+        d.pause ();
+        d.reverse ();
+    }
+}
