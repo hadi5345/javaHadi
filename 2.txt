@@ -1,0 +1,126 @@
+package AwalHadiJava;
+
+public class Employee {
+	private int employeeID;
+	private String name;
+	private  double salary;
+	
+
+	public Employee(int employeeID,String name,double salary) 
+	
+	{
+	this.employeeID= employeeID;
+	this.name=name;
+	this.salary=salary;
+	}
+	
+	public int getEmployeeID() {
+	return employeeID;
+	}
+	
+	public String getName() {
+	return name;
+	}
+	
+	public double getSalary() {
+	return salary;
+	}
+	
+	 public String toString() {
+	 return "EmployeeID: "+employeeID+ " \nName: "+name+"\nSalary: "+salary;
+	 }
+	 
+	 public static double totalSalary(Employee[]employees) {
+	 double totalSalary=0;
+	 
+	 for(Employee employee:employees) {
+	 totalSalary+=employee.getSalary();
+	 }
+	 
+	 return totalSalary;
+	 }
+	 }
+	
+public class Professor extends Employee{
+	 
+	 private String SubjectOfExpertise;
+	 
+	 public Professor(int employeeID,String name,double salary,String SubjectofExpertise)
+	 {
+	 super(employeeID,name,salary);
+	 this.SubjectOfExpertise=SubjectofExpertise;
+	 
+	 }
+	 public String getSubjectofExpertise(){
+		 
+		 return SubjectOfExpertise;
+		 }
+		 
+		 
+		 public String toString(){
+		 
+		 return super.toString()+"\nSubjectofExpertise: "+SubjectOfExpertise;
+		 }
+		}
+	
+public class Administrator extends Employee
+{
+	 private  String department;
+	 
+	 public Administrator(int employeeID,String name,double salary,String department)
+	 {
+	 super(employeeID,name,salary);
+	 this.department=department;
+	 }
+	 public String getdepartment(){
+	 return department;
+	 }
+	public String toString()
+	{
+	 return super.toString()+"\nDepartment: "+department;
+	 }
+	}
+	
+public class SupportStaff extends Employee {
+	 private  String jobtitle;
+	 
+	 public SupportStaff(int employeeID,String name,double salary,String jobtitle)
+	 {
+	 
+	 super(employeeID,name,salary);
+	 this.jobtitle=jobtitle;
+	 }
+	 public String getjobtitle(){
+	 
+	 return jobtitle;
+	 } 
+	  public String toString()
+	  {
+	 return super.toString()+"\nJobTitle: "+jobtitle;
+	 }
+	
+	
+	
+public static void main(String[]args){
+	 
+	 
+	 Employee e1=new Employee(5901,"Awal",60000);
+	 Professor p1=new Professor(5902,"Hadi",90000.00,"Directing Manager");
+	 Administrator a1=new Administrator(5903,"Busra",100000,"CSE");
+	 SupportStaff s1=new SupportStaff(7104,"Malak",20000,"Water Supply");
+	 
+	 System.out.println(e1.toString());
+	 System.out.println("\n"); 
+	 System.out.println(p1.toString());
+	 System.out.println("\n"); 
+	 System.out.println(a1.toString());
+	 System.out.println("\n"); 
+	 System.out.println(s1.toString());
+	 
+	 Employee[]employees={e1,p1,a1,s1};
+	 double totalSalary=Employee.totalSalary(employees);
+	 
+	 System.out.println("\nTotal Salary: "+totalSalary);
+	 System.out.println();
+	 }
+	 }

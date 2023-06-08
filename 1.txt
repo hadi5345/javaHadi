@@ -1,0 +1,93 @@
+public class Vehicle {
+    private String regNo;
+    private String make;
+    private int yearOfManufacture;
+    private double value;
+
+    public Vehicle(String regNo, String make, int yearOfManufacture, double value) {
+        this.regNo = regNo;
+        this.make = make;
+        this.yearOfManufacture = yearOfManufacture;
+        this.value = value;
+    }
+
+    public String getRegNumber() {
+        return regNo;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public int getYear() {
+        return yearOfManufacture;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public int calculateAge(int currentYear) {
+        return currentYear - yearOfManufacture;
+    }
+}
+
+public class SecondHandVehicle extends Vehicle {
+    private int numberOfOwners;
+
+    public SecondHandVehicle(String regNo, String make, int yearOfManufacture, double value, int numberOfOwners) {
+        super(regNo, make, yearOfManufacture, value);
+        this.numberOfOwners = numberOfOwners;
+    }
+
+    public int getNumberOfOwners() {
+        return numberOfOwners;
+    }
+
+    public void sellVehicle(double newValue) {
+        setValue(newValue);
+        numberOfOwners++;
+    }
+}
+
+public class TestClass {
+    public static void main(String[] args) {
+        // Creating a new vehicle
+        Vehicle vehicle = new Vehicle("ABC123", "Toyota", 2018, 20000.0);
+
+        // Accessing vehicle information
+        System.out.println("Registration Number: " + vehicle.getRegNumber());
+        System.out.println("Make: " + vehicle.getMake());
+        System.out.println("Year of Manufacture: " + vehicle.getYear());
+        System.out.println("Value: " + vehicle.getValue());
+
+        // Setting a new value for the vehicle
+        vehicle.setValue(25000.0);
+        System.out.println("Updated Value: " + vehicle.getValue());
+
+        // Calculating the age of the vehicle
+        int currentYear = 2023;
+        int age = vehicle.calculateAge(currentYear);
+        System.out.println("Vehicle Age: " + age);
+
+        // Creating a second-hand vehicle
+        SecondHandVehicle secondHandVehicle = new SecondHandVehicle("XYZ456", "Honda", 2015, 15000.0, 2);
+
+        // Accessing second-hand vehicle information
+        System.out.println("\nSecond Hand Vehicle Information:");
+        System.out.println("Registration Number: " + secondHandVehicle.getRegNumber());
+        System.out.println("Make: " + secondHandVehicle.getMake());
+        System.out.println("Year of Manufacture: " + secondHandVehicle.getYear());
+        System.out.println("Value: " + secondHandVehicle.getValue());
+        System.out.println("Number of Owners: " + secondHandVehicle.getNumberOfOwners());
+
+        // Selling the second-hand vehicle
+        secondHandVehicle.sellVehicle(12000.0);
+        System.out.println("Updated Value: " + secondHandVehicle.getValue());
+        System.out.println("Number of Owners: " + secondHandVehicle.getNumberOfOwners());
+    }
+}

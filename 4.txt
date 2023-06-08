@@ -1,0 +1,51 @@
+package doctor;
+
+public class Doctor {
+    private String name;
+    private int id;
+    private String hospital;
+    private String phoneNo;
+   public Doctor() {
+	   
+   }
+    public void setData(String name, int id,String hospital, String phoneNo) {
+    	this.name=name;
+    	this.id=id;
+        this.hospital = hospital;
+        this.phoneNo = phoneNo;
+    }
+
+    public String gettName() {
+        return this.name;
+    }
+   // public void getName(String n) {
+    	//this .name=n;
+    	
+    
+
+    public int getId() {
+        return this.id;
+    }
+    //public void getId(int i) {
+    	//this.id=i;
+    
+
+    public void display() {
+    	System.out.println("NAME"+this.name);
+    	System.out.println("ID:"+this.id);
+    	
+        System.out.println("Hospital: " + this.hospital);
+        System.out.println("Phone No.: " + this.phoneNo);
+    }
+
+    public static void main(String[] args) {
+        Doctor d = new Doctor();
+        d.setData( "Rasedul",1200,"ABC Hospital", "555-1234");
+        d.display();
+
+     
+       
+       // System.out.println("NAME"+d.getName()+","+d.getId());
+        
+    }
+}
